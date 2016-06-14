@@ -1,18 +1,21 @@
 $(document).ready(function(){
 
 	// Shows my name initally
-	$("span.myName").fadeIn(1000);
+	$("span.myName").fadeIn(2000);
+//	
+	
+//	$("span.myName").slideDown("slow","easeInBounce");
 	
 	// Loads the line, profission, and icons
 	$("div.separator").animate({
 		"bottom": "0px"
-	},800, function(){
+	},1500, function(){
 		$("div.professionTitle").animate({
 			"bottom": "0px"
-		},600, function(){
+		},1000, function(){
 			$("ul").animate({
 				"bottom": "0px"
-			},400);
+			},600);
 		});
 	});
 	
@@ -44,7 +47,7 @@ $(document).ready(function(){
 			$(this).find('#portfolioIcon').show();
 			$(".label.port").animate({
 				"color":"black",
-				"border-color":"black"
+				"border-color":"black",
 			},"fast");
 	});
 	
@@ -82,7 +85,7 @@ $(document).ready(function(){
 			},"fast");
 	});
 	
-	 // Sitchs about for arrow left and shows label
+	// Sitchs about for arrow left and shows label
 	$('.col-sm-1.about').hover(function() {
 		$(this).find('#aboutIcon').hide();
 		$(this).find('#arrowLeft').show();
@@ -97,6 +100,22 @@ $(document).ready(function(){
 				"color":"black",
 				"border-color":"black"
 			},"fast");
+	});
+	
+	// Make menu on the right side appear
+	$('.col-sm-1.menu').click(function(){
+		$('#sidemenuRight').show("slide",{direction: 'right'}, "slow");
+	});
+	
+	$('#closeMenu').click(function(){
+		$('#sidemenuRight').hide("slide",{direction: 'right'}, "slow");
+		$('#arrowRight').hide();
+		$('#menuIcon').show();
+		$(".label.menu").animate({
+			"color":"black",
+			"border-color":"black"
+		},"fast");
+		return false;
 	});
 	
 });
